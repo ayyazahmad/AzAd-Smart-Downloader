@@ -348,45 +348,23 @@ function render() {
       link.target = '_blank';
       link.rel = 'noopener';
       
-      // Check if it's an SVG file
-      const isSvg = item.filename?.toLowerCase().endsWith('.svg') || 
-                    item.url?.toLowerCase().includes('.svg');
-      
-      if (isSvg) {
-        // Use object tag for SVG to handle CORS better
-        const obj = document.createElement('object');
-        obj.className = 'preview-thumb';
-        obj.type = 'image/svg+xml';
-        obj.data = item.url || '';
-        obj.style.pointerEvents = 'none';
-        
-        // Fallback content inside object
-        const fallback = document.createElement('span');
-        fallback.className = 'preview-icon';
-        fallback.textContent = getPreviewIcon(item.type);
-        obj.appendChild(fallback);
-        
-        link.appendChild(obj);
-      } else {
-        const img = document.createElement('img');
-        img.className = 'preview-thumb';
-        img.loading = 'lazy';
-        img.referrerPolicy = 'no-referrer';
-        img.alt = 'preview';
-        img.src = item.url || '';
+      const img = document.createElement("img");
+      img.className = "preview-thumb";
+      img.loading = "lazy";
+      img.referrerPolicy = "no-referrer";
+      img.alt = "preview";
+      img.src = item.url || "";
 
-        // Fallback to emoji on error
-        img.onerror = function() {
-          this.style.display = 'none';
-          const span = document.createElement('span');
-          span.className = 'preview-icon';
-          span.textContent = getPreviewIcon(item.type);
-          link.appendChild(span);
-        };
+      // Fallback to emoji on error
+      img.onerror = function() {
+        this.style.display = 'none';
+        const span = document.createElement('span');
+        span.className = 'preview-icon';
+        span.textContent = getPreviewIcon(item.type);
+        tdPreview.appendChild(span);
+      };
 
-        link.appendChild(img);
-      }
-      
+      link.appendChild(img);
       tdPreview.appendChild(link);
     } else {
       const span = document.createElement('span');
