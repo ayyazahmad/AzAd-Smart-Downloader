@@ -3,8 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="AzAd Smart Downloader Privacy Policy - Your privacy is our priority">
-  <title>Privacy Policy - AzAd Smart Downloader</title>
+  <meta name="description" content="AzAd Smart Downloader Privacy Policy - Your privacy is our priority. No data collection, no tracking.">
+  <title>Privacy Policy — AzAd Smart Downloader</title>
+  <link rel="icon" href="icons/icon128.png" sizes="128x128">
+  <link rel="icon" href="icons/icon48.png" sizes="48x48">
+  <link rel="icon" href="icons/icon16.png" sizes="16x16">
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
@@ -30,258 +33,159 @@
       </div>
 
       <h1>Privacy Policy</h1>
-      <p style="color: var(--text-light); font-style: italic;">Last Updated: February 5, 2026</p>
+      <p class="date">Last Updated: February 5, 2026</p>
 
-      <section>
-        <h2>🔐 Your Privacy Matters</h2>
+      <div class="policy-section">
+        <h2>1. Overview</h2>
         <p>
-          AzAd Smart Downloader is committed to protecting your privacy. This policy explains how we handle your information 
-          and what data we collect (or don't collect). <strong>The short answer: We don't collect or store any personal data.</strong>
+          AzAd Smart Downloader ("Extension") is committed to protecting user privacy. This policy explains how the Extension 
+          collects, uses, and protects information. <strong>The short answer: We don't collect or store any personal data.</strong>
         </p>
-      </section>
+      </div>
 
-      <section>
-        <h2>📊 What We Collect</h2>
-
-        <h3>❌ What We DO NOT Collect</h3>
+      <div class="policy-section">
+        <h2>2. Information We Collect</h2>
+        <p>The Extension <strong>does NOT</strong> collect personal information such as:</p>
         <ul>
-          <li>Your name, email address, or phone number</li>
-          <li>Your location or IP address</li>
-          <li>Your browsing history or visited websites</li>
+          <li>Name, email address, or phone number</li>
+          <li>Location or browsing history</li>
           <li>Passwords or payment information</li>
-          <li>Any personally identifiable information</li>
-          <li>Analytics or tracking data</li>
+          <li>Identification of visited websites (beyond scan execution)</li>
         </ul>
-
-        <h3>✅ What We STORE Locally (On Your Device Only)</h3>
-        <p style="color: var(--text-light); margin: 15px 0;">Everything stays in your browser. Nothing is sent to external servers.</p>
-        <ul>
-          <li>
-            <strong>Scan Results:</strong> File URLs, filenames, sizes, and types detected on the current page
-            <ul style="margin-top: 8px;">
-              <li>Stored in your browser's local storage</li>
-              <li>Cleared automatically after download</li>
-              <li>Never transmitted to any server</li>
-            </ul>
-          </li>
-          <li>
-            <strong>User Preferences:</strong> Your download settings (speed, retries, folder organization)
-            <ul style="margin-top: 8px;">
-              <li>Stored locally in browser storage</li>
-              <li>Only on your device</li>
-              <li>Syncs with Chrome if you use Chrome sync (optional)</li>
-            </ul>
-          </li>
-          <li>
-            <strong>Session Data:</strong> Temporary cache during active scanning/downloading
-            <ul style="margin-top: 8px;">
-              <li>Cleared immediately after download completes</li>
-              <li>Never permanently stored</li>
-            </ul>
-          </li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>🔄 How We Use Information</h2>
-
-        <h3>Page Scanning</h3>
-        <p>When you click "Scan This Page":</p>
-        <ol>
-          <li>The extension analyzes the current page's HTML locally</li>
-          <li>Extracts URLs of downloadable files</li>
-          <li>Attempts to fetch file sizes (only for selected downloads)</li>
-          <li>Stores temporary results in your browser's memory</li>
-          <li><strong>No external requests or tracking occurs</strong></li>
-        </ol>
-
-        <h3>File Downloads</h3>
-        <p>When you download files:</p>
-        <ol>
-          <li>Files are downloaded directly from their original sources</li>
-          <li>Chrome's native download manager handles transfers</li>
-          <li>Files saved to your Downloads folder</li>
-          <li>No copies stored on external servers</li>
-        </ol>
-      </section>
-
-      <section>
-        <h2>🛡️ Security & Privacy Features</h2>
-        <ul>
-          <li><strong>Local Processing:</strong> All operations happen in your browser, not on servers</li>
-          <li><strong>No External Communication:</strong> Extension doesn't contact external services</li>
-          <li><strong>Sandboxed Execution:</strong> Extension runs in Chrome's isolated sandbox environment</li>
-          <li><strong>No Tracking:</strong> No analytics, no user IDs, no session identifiers</li>
-          <li><strong>No Ads:</strong> No third-party advertising networks</li>
-          <li><strong>Open Source:</strong> Code is publicly auditable on GitHub</li>
-          <li><strong>Chrome Manifest v3:</strong> Uses latest Chrome security standards</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>🔌 Permissions Explained</h2>
         
-        <table>
+        <p>The Extension <strong>DOES</strong> collect and store locally on your device:</p>
+        <ul>
+          <li><strong>Scan Results:</strong> File URLs, filenames, file types, and file sizes detected on scanned pages (stored in browser local storage, NOT transmitted)</li>
+          <li><strong>User Preferences:</strong> Download settings (concurrency level, retry count, ZIP bundling preference) stored locally in browser storage</li>
+          <li><strong>Session Data:</strong> Temporarily cached during active scanning/downloading, cleared after completion</li>
+        </ul>
+      </div>
+
+      <div class="policy-section">
+        <h2>3. Data Storage & Retention</h2>
+        <ul>
+          <li><strong>Location:</strong> All data stored locally on your device using <code>chrome.storage.local</code></li>
+          <li><strong>Transmission:</strong> No data is transmitted to external servers (except direct file downloads you initiate)</li>
+          <li><strong>Retention:</strong> Scan results stored until next scan. User preferences persist until manually changed.</li>
+          <li><strong>Downloads:</strong> Downloaded files stored in your local Downloads folder per Chrome settings</li>
+          <li><strong>Automatic Cleanup:</strong> Scan data cleared after download queue completes (after 5 seconds)</li>
+        </ul>
+      </div>
+
+      <div class="policy-section">
+        <h2>4. Data Processing Activities</h2>
+        
+        <h3>4.1 Page Scanning</h3>
+        <p>When you click "Scan This Page":</p>
+        <ul>
+          <li>Extension auto-scrolls the page to load lazy-loaded content</li>
+          <li>Analyzes HTML elements (anchors, images, media tags, inline styles) locally</li>
+          <li>Extracts URLs matching file type patterns (images, documents, archives, audio, video)</li>
+          <li>Attempts to fetch file sizes using HTTP HEAD requests (3-second timeout per request)</li>
+          <li>Stores results only in your browser's local storage</li>
+          <li><strong>No tracking or external communication occurs</strong></li>
+        </ul>
+        
+        <h3>4.2 Downloading</h3>
+        <p>When you initiate downloads:</p>
+        <ul>
+          <li>Files are downloaded directly from source URLs (as you selected)</li>
+          <li>Files organized in folder structure: <code>hostname/filetype/filename</code></li>
+          <li>Chrome's native download manager handles the transfer</li>
+          <li>No data stored on external servers</li>
+        </ul>
+      </div>
+
+      <div class="policy-section">
+        <h2>5. Third-Party Services</h2>
+        <ul>
+          <li><strong>External Links:</strong> Extension footer includes branded links to social media and AzAd Solutions website. These are user-initiated navigation (opening in new tabs).</li>
+          <li><strong>File Hosts:</strong> Downloaded files come directly from their original hosting sources. The Extension does not proxy or modify requests.</li>
+          <li><strong>Chrome APIs:</strong> Extension uses standard Chrome APIs: <code>tabs</code>, <code>downloads</code>, <code>storage.local</code>, <code>scripting</code> (as per manifest permissions)</li>
+        </ul>
+      </div>
+
+      <div class="policy-section">
+        <h2>6. User Control & Data Access</h2>
+        <p>You have full control over Extension data:</p>
+        <ul>
+          <li><strong>Clear Data:</strong> Go to Chrome Extensions Settings → AzAd Smart Downloader → "Remove extension" or manually clear via Chrome Settings → Privacy and security → Clear browsing data</li>
+          <li><strong>Review Stored Data:</strong> Open Chrome DevTools (F12) → Application → Local Storage → <code>chrome-extension://[extension-id]</code></li>
+          <li><strong>Download Pause:</strong> Close the Extension panel or disable the Extension in Chrome settings</li>
+        </ul>
+      </div>
+
+      <div class="policy-section">
+        <h2>7. Security</h2>
+        <ul>
+          <li>Extension operates in isolated Chrome sandbox environment</li>
+          <li>No external servers or cloud storage used</li>
+          <li>Content scripts validated and sandboxed</li>
+          <li>Each file download respects Chrome's security warnings and HTTPS validation</li>
+          <li>No privilege escalation or cross-site request forgery attacks possible</li>
+        </ul>
+      </div>
+
+      <div class="policy-section">
+        <h2>8. Manifest v3 Compliance</h2>
+        <p>Extension uses Chrome Manifest v3 (latest security standard):</p>
+        <ul>
+          <li>Service Worker-based background execution (not persistent)</li>
+          <li>Restricted content script injection (limited to activeTab & scripting permissions)</li>
+          <li>No remote code execution or dynamic script injection above Chrome base policies</li>
+        </ul>
+      </div>
+
+      <div class="policy-section">
+        <h2>9. Permissions Explanation</h2>
+        <table class="permissions-table">
           <tr>
             <th>Permission</th>
-            <th>Purpose</th>
             <th>Why Needed</th>
           </tr>
           <tr>
             <td><code>activeTab</code></td>
-            <td>Access current webpage</td>
-            <td>To scan the page you're viewing and find files</td>
+            <td>Access the currently active tab to inject scanner script</td>
           </tr>
           <tr>
             <td><code>scripting</code></td>
-            <td>Run code on pages</td>
-            <td>To execute the scanner on the current page</td>
+            <td>Execute scan and auto-scroll scripts within page context</td>
           </tr>
           <tr>
             <td><code>downloads</code></td>
-            <td>Manage downloads</td>
-            <td>To save files to your Downloads folder</td>
+            <td>Initiate file downloads to your Downloads folder</td>
           </tr>
           <tr>
             <td><code>storage</code></td>
-            <td>Store preferences</td>
-            <td>To remember your download settings locally</td>
+            <td>Store scan results and user preferences locally</td>
           </tr>
         </table>
+      </div>
 
-        <p style="margin-top: 20px; color: var(--text-light); font-size: 14px;">
-          <strong>✓ We only use these permissions when you explicitly click "Scan This Page"</strong>
-        </p>
-      </section>
-
-      <section>
-        <h2>📁 Your Data Control</h2>
-
-        <p>You have full control over all your data:</p>
-
-        <h3>View Stored Data</h3>
-        <ol>
-          <li>Open Chrome DevTools (press F12)</li>
-          <li>Go to <strong>Application</strong> tab</li>
-          <li>Expand <strong>Local Storage</strong></li>
-          <li>Select your extension ID</li>
-          <li>You'll see exactly what's stored</li>
-        </ol>
-
-        <h3>Clear Data</h3>
-        <ol>
-          <li><strong>Option 1:</strong> Go to chrome://extensions → Find AzAd → Click "Remove"</li>
-          <li><strong>Option 2:</strong> Settings → Privacy → Clear browsing data (check "Storage")</li>
-          <li><strong>Option 3:</strong> Automatic cleanup happens after each download</li>
-        </ol>
-
-        <h3>Manage Downloads</h3>
-        <ol>
-          <li>Files downloaded to your Downloads folder</li>
-          <li>You can delete them anytime</li>
-          <li>Chrome downloads aren't tracked by us</li>
-        </ol>
-      </section>
-
-      <section>
-        <h2>🌍 Third-Party Services</h2>
-
-        <h3>No External Data Sharing</h3>
-        <p>We do not share, sell, or transmit your data to:</p>
-        <ul>
-          <li>Advertising networks</li>
-          <li>Analytics services</li>
-          <li>Data brokers</li>
-          <li>External servers</li>
-          <li>Any third parties</li>
-        </ul>
-
-        <h3>External Links</h3>
-        <p>The extension includes links to:</p>
-        <ul>
-          <li>Developer website (ayyazahmad.com)</li>
-          <li>Company website (azad.co)</li>
-          <li>GitHub repository</li>
-          <li>Social media (user-initiated only)</li>
-        </ul>
-        <p style="color: var(--text-light); margin-top: 15px; font-size: 14px;">
-          These are provided for reference only. Clicking them opens new tabs in your browser.
-        </p>
-
-        <h3>File Download Sources</h3>
-        <p>Downloaded files come directly from their original sources. The extension does not proxy or delay requests.</p>
-      </section>
-
-      <section>
-        <h2>🔒 Security Measures</h2>
-        <ul>
-          <li><strong>Manifest v3:</strong> Uses Chrome's latest security architecture</li>
-          <li><strong>Service Worker:</strong> Background code isn't persistent (better security)</li>
-          <li><strong>Content Script Isolation:</strong> Limited to current active tab</li>
-          <li><strong>HTTPS Validation:</strong> Respects Chrome's HTTPS requirements</li>
-          <li><strong>Sandboxed Environment:</strong> Can't access other extensions or system files</li>
-          <li><strong>Code Review:</strong> Open source on GitHub for community audit</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>📋 Cookie Policy</h2>
-        <p>The extension <strong>does not use cookies</strong> except:</p>
-        <ul>
-          <li>Cookies from the websites you visit (you control these in Chrome settings)</li>
-          <li>The extension itself never sets or tracks cookies</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>👶 Children's Privacy</h2>
+      <div class="policy-section">
+        <h2>10. Changes to This Policy</h2>
         <p>
-          The extension is not targeted at children under 13. We do not knowingly collect information from minors. 
-          If you believe we have collected information from a child, please contact us immediately.
+          We may update this privacy policy periodically. Changes will be reflected with an updated "Last Updated" date above. 
+          Continued use of the Extension constitutes acceptance of changes.
         </p>
-      </section>
+      </div>
 
-      <section>
-        <h2>🔄 Policy Updates</h2>
-        <p>
-          We may update this privacy policy periodically. Changes will be reflected on this page with an updated date above. 
-          Your continued use of the extension constitutes acceptance of any updates.
-        </p>
-      </section>
+      <div class="policy-section">
+        <h2>11. Contact & Support</h2>
+        <div class="contact-box">
+          <p><strong>For privacy concerns or questions:</strong></p>
+          <p>
+            📧 Email: <a href="mailto:info@azad.co">info@azad.co</a><br>
+            🌐 Company: <a href="https://azad.co" target="_blank">AzAd Solutions (azad.co)</a><br>
+            👤 Developer: <a href="https://ayyazahmad.com" target="_blank">Ayyaz Ahmad</a>
+          </p>
+        </div>
+      </div>
 
-      <section>
-        <h2>📞 Contact & Questions</h2>
-        <p>
-          If you have concerns or questions about this privacy policy:
-        </p>
-        <ul>
-          <li>
-            <strong>Email:</strong>
-            <a href="mailto:info@azad.co">info@azad.co</a>
-          </li>
-          <li>
-            <strong>GitHub Issues:</strong> 
-            <a href="https://github.com/ayyazahmad/AzAd-Smart-Downloader/issues" target="_blank">Report privacy concerns</a>
-          </li>
-          <li>
-            <strong>Website:</strong> 
-            <a href="https://ayyazahmad.com" target="_blank">ayyazahmad.com</a>
-          </li>
-        </ul>
-      </section>
-
-      <section style="background: var(--bg-light); padding: 20px; border-radius: 8px; margin-top: 40px;">
-        <h3 style="margin-top: 0;">Summary</h3>
-        <p>✅ <strong>We protect your privacy by design.</strong></p>
-        <p>✅ <strong>No personal data is collected or transmitted.</strong></p>
-        <p>✅ <strong>All operations are local to your device.</strong></p>
-        <p>✅ <strong>You have complete control of your data.</strong></p>
-        <p>✅ <strong>The code is open-source and auditable.</strong></p>
-        <p style="margin-bottom: 0;">
-          Many extensions track and monetize user data. We chose a different path. 
-          Privacy is a right, not a feature we sell.
-        </p>
-      </section>
+      <p class="disclaimer">
+        <strong>Disclaimer:</strong> This Extension is provided "as-is" without warranty. Users are responsible for ensuring 
+        they have rights to download content. AzAd Solutions is not liable for misuse or legal issues arising from downloaded files.
+      </p>
     </div>
   </main>
 
@@ -289,21 +193,21 @@
     <div class="container">
       <div>
         <p><strong>AzAd Smart Downloader</strong></p>
-        <p>An open-source Chrome extension for bulk downloading files from webpages.</p>
+        <p>Bulk downloads made simple — images, docs, audio & video.</p>
         <div class="socials">
           <a href="https://ayyazahmad.com" target="_blank">👤 Developer</a>
-          <a href="https://azad.co" target="_blank">🌐 Company</a>
+          <a href="https://azad.co" target="_blank">🌐 AzAd Solutions</a>
           <a href="https://github.com/ayyazahmad/AzAd-Smart-Downloader" target="_blank">💻 GitHub</a>
         </div>
       </div>
       <div>
         <p><strong>Made with ❤️</strong></p>
         <p>by <a href="https://ayyazahmad.com" target="_blank">Ayyaz Ahmad</a></p>
-        <p style="margin-top: 20px; font-size: 12px;">
-          <a href="privacy.html">Privacy Policy</a> • 
-          <a href="support.html">Support</a> • 
+        <div class="footer-links">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="support.html">Support</a>
           <a href="https://github.com/ayyazahmad/AzAd-Smart-Downloader/blob/main/LICENSE" target="_blank">License</a>
-        </p>
+        </div>
       </div>
     </div>
   </footer>
