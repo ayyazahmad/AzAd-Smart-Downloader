@@ -5,16 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="AzAd Smart Downloader Support - FAQ, troubleshooting, and help for the Chrome extension.">
   <title>Support & FAQ — AzAd Smart Downloader</title>
-  <link rel="icon" href="/AzAd-Smart-Downloader/icons/icon128.png" sizes="128x128">
-  <link rel="icon" href="/AzAd-Smart-Downloader/icons/icon48.png" sizes="48x48">
-  <link rel="icon" href="/AzAd-Smart-Downloader/icons/icon16.png" sizes="16x16">
+  <link rel="icon" href="icons/icon128.png" sizes="128x128">
+  <link rel="icon" href="icons/icon48.png" sizes="48x48">
+  <link rel="icon" href="icons/icon16.png" sizes="16x16">
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
   <header>
     <div class="container">
       <a href="./" class="logo">
-        <img src="/AzAd-Smart-Downloader/icons/icon48.png" alt="AzAd logo">
+        <img src="icons/icon48.png" alt="AzAd logo">
         <span>AzAd Smart Downloader</span>
       </a>
       <nav>
@@ -36,20 +36,32 @@
       <p class="lead">Get answers to common questions and troubleshooting tips.</p>
 
       <section>
-        <h2>📷 Interface Overview</h2>
-        <p class="lead">These screenshots show where to scan and how to download.</p>
-        <div class="image-grid compact">
+        <h2>📸 Screenshots</h2>
+        <p class="lead">A quick look at the popup and download panel.</p>
+        <div class="image-grid">
           <figure class="image-card">
-            <img src="assets/images/screenshot-popup.jpg" alt="Popup view">
-            <figcaption>Popup with Scan This Page</figcaption>
+            <a class="image-link" href="assets/images/screenshot-popup.jpg" data-lightbox="screenshot-popup">
+              <img src="assets/images/screenshot-popup.jpg" alt="Popup: one-click scan">
+            </a>
+            <figcaption>Popup: one-click scan</figcaption>
           </figure>
           <figure class="image-card">
-            <img src="assets/images/screenshot-panel.jpg" alt="Panel view">
-            <figcaption>Results panel with previews</figcaption>
+            <a class="image-link" href="assets/images/ASD_popup_focus.jpg" data-lightbox="popup-focus">
+              <img src="assets/images/ASD_popup_focus.jpg" alt="Focused scan controls">
+            </a>
+            <figcaption>Focused scan controls</figcaption>
           </figure>
           <figure class="image-card">
-            <img src="assets/images/hero-banner.jpg" alt="Hero banner">
-            <figcaption>Extension overview</figcaption>
+            <a class="image-link" href="assets/images/ASD_popup.jpg" data-lightbox="popup-settings">
+              <img src="assets/images/ASD_popup.jpg" alt="Quick settings at a glance">
+            </a>
+            <figcaption>Quick settings at a glance</figcaption>
+          </figure>
+          <figure class="image-card">
+            <a class="image-link" href="assets/images/screenshot-panel.jpg" data-lightbox="panel">
+              <img src="assets/images/screenshot-panel.jpg" alt="Panel: filter, preview, and download">
+            </a>
+            <figcaption>Panel: filter, preview, and download</figcaption>
           </figure>
         </div>
       </section>
@@ -224,5 +236,52 @@
       </div>
     </div>
   </footer>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightbox-content" role="dialog" aria-modal="true">
+      <button class="lightbox-close" type="button" aria-label="Close">×</button>
+      <img id="lightboxImage" alt="Screenshot preview">
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImage = document.getElementById('lightboxImage');
+      const closeBtn = document.querySelector('.lightbox-close');
+      const links = document.querySelectorAll('.image-link');
+
+      if (!lightbox || !lightboxImage) return;
+
+      links.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const href = link.getAttribute('href');
+          const alt = link.querySelector('img')?.getAttribute('alt') || 'Screenshot preview';
+          lightboxImage.src = href;
+          lightboxImage.alt = alt;
+          lightbox.classList.add('open');
+          lightbox.setAttribute('aria-hidden', 'false');
+        });
+      });
+
+      function closeLightbox() {
+        lightbox.classList.remove('open');
+        lightbox.setAttribute('aria-hidden', 'true');
+        lightboxImage.src = '';
+      }
+
+      closeBtn?.addEventListener('click', closeLightbox);
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) closeLightbox();
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightbox.classList.contains('open')) {
+          closeLightbox();
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
