@@ -32,7 +32,7 @@
 
   "options_page": "options.html",
 
-  "homepage_url": "https://azad.co/chrome",
+  "homepage_url": "https://ayyazahmad.github.io/AzAd-Smart-Downloader/",
   
   "action": {
     "default_popup": "popup.html",
