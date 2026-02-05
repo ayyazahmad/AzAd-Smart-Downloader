@@ -1,6 +1,7 @@
 // AzAd Smart Downloader – Panel Logic (OPTIMIZED)
 
 let allItems = [];
+let scannedHostname = 'unknown-site'; // Store hostname of scanned page
 let completed = 0;
 let sortColumn = "filename";
 let sortAscending = true;
@@ -36,6 +37,14 @@ async function loadScanData(retries = 12) {
 
     if (res.lastScan && Array.isArray(res.lastScan.items)) {
       allItems = res.lastScan.items;
+      // Extract hostname from scanned page URL
+      if (res.lastScan.url) {
+        try {
+          scannedHostname = new URL(res.lastScan.url).hostname;
+        } catch (e) {
+          scannedHostname = 'unknown-site';
+        }
+      }
       render();
       return;
     }
@@ -146,7 +155,7 @@ downloadBtn.onclick = async () => {
       type: "ENQUEUE_DOWNLOADS",
       items: selected.map(item => ({
         url: item.url,
-        filename: `${location.hostname}/${item.type}/${item.filename}`
+        filename: `${scannedHostname}/${item.type}/${item.filename}`
       }))
     });
     
@@ -200,7 +209,7 @@ async function downloadAsZip(items) {
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
       const blob = await response.blob();
-      const folderPath = `${location.hostname}/${item.type}`;
+      const folderPath = `${scannedHostname}/${item.type}`;
       zip.folder(folderPath).file(item.filename, blob);
 
       fetched++;
@@ -247,7 +256,7 @@ async function downloadAsZip(items) {
       const now = new Date();
       const dateStr = now.toISOString().slice(0, 10); // YYYY-MM-DD
       const timeStr = now.toTimeString().slice(0, 8).replace(/:/g, '-'); // HH-MM-SS
-      const siteName = location.hostname.replace(/\./g, '-');
+      const siteName = scannedHostname.replace(/\./g, '-');
       const zipFilename = `AzAd-Smart-Downloader-${siteName}-${dateStr}-${timeStr}.zip`;
 
       const url = URL.createObjectURL(zipBlob);
