@@ -1,0 +1,44 @@
+/* AzAd Smart Downloader - Homepage Styles (theme-aligned) */
+:root{
+  --yellow: #FFCC70;
+  --purple: #3B1D6D;
+  --purple-soft: #6A4FB3;
+  --blue: #5EC8F2;
+  --bg: #FFF8E7;
+  --muted: #6b6b7a;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Inter, 'Segoe UI', system-ui, Arial; background:linear-gradient(180deg, #fffaf2 0%, var(--bg) 100%); color:var(--purple)}
+.container{max-width:1100px;margin:0 auto;padding:28px}
+.header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.header .brand{display:flex;align-items:center;gap:14px}
+.header img{width:56px;height:56px;border-radius:10px}
+.header h1{font-size:20px;margin:0}
+.header p{margin:0;color:var(--muted);font-size:13px}
+.hero{display:flex;gap:24px;align-items:center;margin-top:26px;flex-wrap:wrap}
+.hero-left{flex:1;min-width:280px}
+.hero h2{font-size:30px;margin:0 0 8px}
+.hero p.lead{margin:0 0 16px;color:#4b3b66}
+.cta-row{display:flex;gap:12px;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:12px;border:2px solid var(--purple);background:#fff;color:var(--purple);cursor:pointer;text-decoration:none;font-weight:600}
+.btn.primary{background:linear-gradient(90deg,var(--yellow),#ffd27d);border-color:transparent;color:var(--purple)}
+.btn.ghost{background:transparent}
+.badge{display:inline-block;padding:6px 10px;background:var(--purple-soft);color:#fff;border-radius:999px;font-size:13px}
+.hero-right{width:360px;min-width:220px}
+.card{background:#fff;border-radius:14px;padding:12px;box-shadow:0 8px 30px rgba(59,29,109,0.06);border:1px solid rgba(106,79,179,0.06)}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
+.feature{background:#fff;padding:14px;border-radius:12px;display:flex;gap:12px;align-items:flex-start;border:1px solid rgba(59,29,109,0.04)}
+.feature-emoji{font-size:22px}
+.feature h4{margin:0;font-size:14px}
+.feature p{margin:4px 0 0;color:var(--muted);font-size:13px}
+.screens{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
+.screenshot{background:#fff;border-radius:12px;padding:8px;border:1px dashed rgba(59,29,109,0.06);display:flex;align-items:center;justify-content:center;height:160px}
+.screenshot img{max-width:100%;max-height:100%;border-radius:8px}
+.section{margin-top:34px}
+.section h3{margin:0 0 10px}
+.install-steps{display:flex;gap:12px;flex-wrap:wrap}
+.step{background:#fff;padding:12px;border-radius:10px;border:1px solid rgba(59,29,109,0.04);flex:1;min-width:180px}
+.footer{margin-top:40px;padding:20px 0;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;align-items:center}
+.socials a{margin-left:8px;color:var(--purple-soft);text-decoration:none}
+@media (max-width:900px){.features{grid-template-columns:repeat(2,1fr)}.screens{grid-template-columns:repeat(2,1fr)}.hero-right{width:320px}}
+@media (max-width:600px){.hero{flex-direction:column}.features{grid-template-columns:1fr}.screens{grid-template-columns:1fr}.header{flex-direction:column;align-items:flex-start}.hero-right{width:100%}}
