@@ -3,6 +3,8 @@
 
 # Whitelist only specific files and folders
 !.gitignore
+!.github/
+!.github/**
 !README.md
 !LICENSE
 !CHANGELOG.md
