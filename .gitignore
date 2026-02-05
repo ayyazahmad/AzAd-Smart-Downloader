@@ -8,5 +8,7 @@
 !CHANGELOG.md
 !AzAd_Smart_Downloader/
 !AzAd_Smart_Downloader/**
-!web/
-!web/**
+!docs/
+!docs/**
+!.github/
+!.github/**
