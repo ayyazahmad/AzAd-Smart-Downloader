@@ -6,7 +6,8 @@
   "author": "Ayyaz Ahmad (AzAd Solutions)",
   
   "action": {
-    "default_popup": "popup.html"
+    "default_popup": "popup.html",
+    "default_title": "AzAd Smart Downloader"
   },
 
   "background": {
@@ -20,10 +21,6 @@
     "storage"
   ],
 
-  "host_permissions": [
-    "<all_urls>"
-  ],
-
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",
@@ -32,10 +29,5 @@
 
   "options_page": "options.html",
 
-  "homepage_url": "https://ayyazahmad.github.io/AzAd-Smart-Downloader/",
-  
-  "action": {
-    "default_popup": "popup.html",
-    "default_title": "AzAd Smart Downloader"
-  }
+  "homepage_url": "https://ayyazahmad.github.io/AzAd-Smart-Downloader/"
 }
