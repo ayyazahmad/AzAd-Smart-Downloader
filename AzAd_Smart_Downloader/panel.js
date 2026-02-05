@@ -117,7 +117,7 @@ function sortItems() {
 /* ----------------------------
    Download handler
 ----------------------------- */
-downloadBtn.onclick = () => {
+downloadBtn.onclick = async () => {
   const selected = [];
 
   document
@@ -135,21 +135,141 @@ downloadBtn.onclick = () => {
   completed = 0;
   progressBar.style.width = "0%";
 
-  // ZIP toggle is UI-only for now (safe)
   const useZip = zipToggle?.checked === true;
 
-  chrome.runtime.sendMessage({
-    type: "ENQUEUE_DOWNLOADS",
-    items: selected.map(item => ({
-      url: item.url,
-      filename: `${location.hostname}/${item.type}/${item.filename}`,
-      zip: useZip
-    }))
-  });
-  
-  // Clear memory after successful download queue
-  setTimeout(() => { allItems = []; }, 5000);
+  if (useZip) {
+    // ZIP download - handle in panel.js
+    await downloadAsZip(selected);
+  } else {
+    // Individual downloads - send to background
+    chrome.runtime.sendMessage({
+      type: "ENQUEUE_DOWNLOADS",
+      items: selected.map(item => ({
+        url: item.url,
+        filename: `${location.hostname}/${item.type}/${item.filename}`
+      }))
+    });
+    
+    // Clear memory after successful download queue
+    setTimeout(() => { allItems = []; }, 5000);
+  }
 };
+
+/* ----------------------------
+   ZIP Download functionality
+----------------------------- */
+async function downloadAsZip(items) {
+  if (typeof JSZip === 'undefined') {
+    alert("ZIP library not loaded. Downloading files individually.");
+    // Fallback to individual downloads
+    chrome.runtime.sendMessage({
+      type: "ENQUEUE_DOWNLOADS",
+      items: items.map(item => ({
+        url: item.url,
+        filename: `${location.hostname}/${item.type}/${item.filename}`
+      }))
+    });
+    return;
+  }
+
+  downloadBtn.disabled = true;
+  downloadBtn.textContent = "Creating ZIP...";
+
+  const zip = new JSZip();
+  const total = items.length;
+  let fetched = 0;
+  let failed = 0;
+
+  // Fetch files in parallel with concurrency limit
+  const concurrency = 4;
+  const queue = [...items];
+  const active = [];
+
+  async function fetchFile(item) {
+    try {
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 30000); // 30s timeout
+
+      const response = await fetch(item.url, {
+        signal: controller.signal,
+        mode: 'cors',
+        credentials: 'omit'
+      });
+      clearTimeout(timeout);
+
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+      const blob = await response.blob();
+      const folderPath = `${location.hostname}/${item.type}`;
+      zip.folder(folderPath).file(item.filename, blob);
+
+      fetched++;
+    } catch (e) {
+      console.warn(`Failed to fetch ${item.filename}:`, e.message);
+      failed++;
+    }
+
+    // Update progress
+    const progress = ((fetched + failed) / total) * 100;
+    progressBar.style.width = progress + "%";
+    downloadBtn.textContent = `Fetching ${fetched + failed}/${total}...`;
+  }
+
+  // Process queue with concurrency limit
+  while (queue.length > 0 || active.length > 0) {
+    while (active.length < concurrency && queue.length > 0) {
+      const item = queue.shift();
+      const promise = fetchFile(item).then(() => {
+        active.splice(active.indexOf(promise), 1);
+      });
+      active.push(promise);
+    }
+
+    if (active.length > 0) {
+      await Promise.race(active);
+    }
+  }
+
+  // Generate and download ZIP
+  if (fetched > 0) {
+    downloadBtn.textContent = "Generating ZIP...";
+    
+    try {
+      const zipBlob = await zip.generateAsync({ 
+        type: "blob",
+        compression: "DEFLATE",
+        compressionOptions: { level: 6 }
+      }, (metadata) => {
+        progressBar.style.width = metadata.percent + "%";
+      });
+
+      // Create download link
+      const url = URL.createObjectURL(zipBlob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `${location.hostname}_files.zip`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+
+      downloadBtn.textContent = `Done! ${fetched} files zipped${failed > 0 ? `, ${failed} failed` : ''}`;
+    } catch (e) {
+      console.error("ZIP generation failed:", e);
+      alert("Failed to generate ZIP file. Try downloading fewer files or disable ZIP mode.");
+      downloadBtn.textContent = "Start Download";
+    }
+  } else {
+    alert("No files could be fetched. They may be blocked by CORS or the server.");
+    downloadBtn.textContent = "Start Download";
+  }
+
+  downloadBtn.disabled = false;
+  progressBar.style.width = "100%";
+
+  // Clear memory after download
+  setTimeout(() => { allItems = []; }, 5000);
+}
 
 /* ----------------------------
    Progress updates
