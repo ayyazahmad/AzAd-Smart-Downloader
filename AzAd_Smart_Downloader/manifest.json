@@ -1,0 +1,41 @@
+{
+  "manifest_version": 3,
+  "name": "AzAd Smart Downloader",
+  "description": "Bulk download images, documents, videos & archives from any webpage. Auto-scans page, previews files, smart filtering.",
+  "version": "1.0.1",
+  "author": "Ayyaz Ahmad (AzAd Solutions)",
+  
+  "action": {
+    "default_popup": "popup.html"
+  },
+
+  "background": {
+    "service_worker": "background.js"
+  },
+
+  "permissions": [
+    "downloads",
+    "activeTab",
+    "scripting",
+    "storage"
+  ],
+
+  "host_permissions": [
+    "<all_urls>"
+  ],
+
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+
+  "options_page": "options.html",
+
+  "homepage_url": "https://azad.co/chrome",
+  
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "AzAd Smart Downloader"
+  }
+}

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <rect width="1200" height="800" fill="#fff8e7"/>
+  <g fill="#FFCC70" font-family="Segoe UI, Arial" font-size="32" text-anchor="middle">
+    <text x="600" y="380">Placeholder</text>
+    <text x="600" y="420" font-size="16" fill="#8b6e2a">Your image here</text>
+  </g>
+</svg>

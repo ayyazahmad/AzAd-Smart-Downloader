@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>AzAd Smart Downloader – Settings</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<h2>AzAd Smart Downloader – Settings</h2>
+
+<section>
+  <h3>Download Engine</h3>
+
+  <label>
+    Max concurrent downloads:
+    <input type="number" id="concurrency" min="1" max="10">
+  </label>
+
+  <br><br>
+
+  <label>
+    Retry failed downloads:
+    <input type="number" id="retries" min="0" max="5">
+  </label>
+</section>
+
+<section>
+  <h3>ZIP Bundling</h3>
+  <label>
+    <input type="checkbox" id="enableZip">
+    Enable ZIP bundling
+  </label>
+</section>
+
+
+
+
+<section>
+  <h3>Chrome Download Requirement</h3>
+  <p style="color:#b00;">
+    ⚠️ Make sure <b>“Ask where to save each file before downloading”</b>
+    is <b>unchecked</b> and a default download folder is set.
+  </p>
+
+  <button id="openChromeSettings">Open Chrome Download Settings</button>
+</section>
+
+<br>
+<button id="saveBtn">Save Settings</button>
+
+<script src="options.js"></script>
+</body>
+</html>
