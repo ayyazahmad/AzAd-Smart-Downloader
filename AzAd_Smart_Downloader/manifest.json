@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "AzAd Smart Downloader",
   "description": "Bulk download images, documents, videos & archives from any webpage. Auto-scans page, previews files, smart filtering.",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "author": "Ayyaz Ahmad (AzAd Solutions)",
   
   "action": {
