@@ -1,10 +1,12 @@
 # Ignore everything by default
 *
 
-# Whitelist only specific files and the extension folder
+# Whitelist only specific files and folders
 !.gitignore
 !README.md
 !LICENSE
 !CHANGELOG.md
 !AzAd_Smart_Downloader/
 !AzAd_Smart_Downloader/**
+!docs/
+!docs/**
