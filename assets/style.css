@@ -67,9 +67,17 @@ header .container {
 }
 
 .logo img {
-  width: 32px;
-  height: 32px;
-  border-radius: 4px;
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  display: inline-block;
+  object-fit: cover;
+}
+
+/* Make header logo and nav adapt for small widths */
+@media (max-width: 768px) {
+  .logo img { width: 40px; height: 40px; }
+  .logo span { font-size: 16px; }
 }
 
 nav {
