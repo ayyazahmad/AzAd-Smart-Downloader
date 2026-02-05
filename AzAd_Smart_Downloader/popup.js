@@ -22,17 +22,33 @@ scanBtn.onclick = async () => {
     // Clear old scan data
     await chrome.storage.local.remove(["lastScan", "scanReady"]);
 
-    // Inject scripts with timeout protection
-    const scriptPromise = Promise.all([
-      chrome.scripting.executeScript({
-        target: { tabId: tab.id },
-        files: ["content/autoScroll.js"]
-      }),
-      chrome.scripting.executeScript({
-        target: { tabId: tab.id },
-        files: ["content/scanner.js"]
-      })
-    ]);
+    // Determine which scrapers to inject based on hostname
+    const scripts = ["content/autoScroll.js"];
+    
+    const hostname = new URL(tab.url).hostname;
+    
+    if (hostname.includes("instagram.com")) {
+      scripts.push("content/scrapers/instagram.js");
+    }
+    if (hostname.includes("facebook.com")) {
+      scripts.push("content/scrapers/facebook.js");
+    }
+    if (hostname.includes("clipchamp.com")) {
+      scripts.push("content/scrapers/clipchamp.js");
+    }
+    
+    // Always run generic scanner last
+    scripts.push("content/scanner.js");
+
+    // Inject all scripts sequentially
+    const scriptPromise = (async () => {
+      for (const file of scripts) {
+        await chrome.scripting.executeScript({
+          target: { tabId: tab.id },
+          files: [file]
+        });
+      }
+    })();
     
     // Timeout after 20 seconds
     await Promise.race([
