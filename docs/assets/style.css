@@ -71,6 +71,12 @@ header .container {
   font-size: 18px;
 }
 
+.logo:hover,
+.logo:hover span {
+  color: var(--yellow);
+  transition: color 0.2s ease;
+}
+
 nav {
   display: flex;
   gap: 24px;
