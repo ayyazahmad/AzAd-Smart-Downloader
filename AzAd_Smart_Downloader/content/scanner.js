@@ -97,7 +97,14 @@
         img.dataset.original ||
         img.src;
 
-      if (src && EXT_REGEX.images.test(src)) {
+      if (!src) return;
+
+      // Trust the image tag - if it has a src, it's likely an image
+      // even if it doesn't have an extension (CDN, dynamic chunks, etc)
+      // We filter out base64 very small icons if needed, but for now scan all.
+      // Explicitly allow blob: and data: (though data: might be handled separately)
+      
+      if (EXT_REGEX.images.test(src) || src.startsWith('http') || src.startsWith('blob:') || src.startsWith('data:image')) {
         add(src, "images");
       }
     });
@@ -105,6 +112,7 @@
     // Audio / Video
     document.querySelectorAll("audio, video").forEach(media => {
       if (media.src) add(media.src, media.tagName.toLowerCase());
+      if (media.poster) add(media.poster, "images"); // capture video posters too
       media.querySelectorAll("source").forEach(s => {
         if (s.src) add(s.src, media.tagName.toLowerCase());
       });

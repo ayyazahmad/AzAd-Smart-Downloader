@@ -4,13 +4,15 @@
 
 ![Chrome Extension](https://img.shields.io/badge/Chrome%20Extension-Published-brightgreen)
 ![License](https://img.shields.io/badge/license-MIT-blue)
-![Version](https://img.shields.io/badge/version-1.0.0-blue)
+![Version](https://img.shields.io/badge/version-1.0.2-blue)
 
-A powerful Chrome extension that automatically scans web pages for media files and allows you to bulk download them with smart organization and filtering.
+A powerful Chrome extension that automatically scans web pages for media files and allows you to bulk download them with smart organization and filtering. Now supports direct ZIP bundling!
 
 ## ✨ Features
 
-- **🔎 Smart Scanning** — Detects files across images, links, media tags, and inline styles
+- **🔎 Smart Scanning** — Detects files across images, links, media tags, and inline styles (handles dynamic SPAs like Facebook/Instagram)
+- **📜 Auto-Scroll** — Automatically scrolls pages to load infinite content before scanning
+- **📦 ZIP Downloads** — Bundle multiple files into a named ZIP archive (Site-Date-Time format)
 - **🖼️ Image Previews** — See thumbnails for quick selection
 - **⚡ Fast & Safe** — Parallel fetches with timeouts; optimized to minimize page impact
 - **📂 Organized Downloads** — Files are automatically grouped by hostname and file type
