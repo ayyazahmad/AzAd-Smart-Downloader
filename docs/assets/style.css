@@ -607,36 +607,3 @@ footer a:hover {
 .use-cases strong {
   color: var(--purple);
 }
-
-/* Hero and screenshots */
-.hero-image {
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-  display: block;
-  box-shadow: 0 12px 36px rgba(59,29,109,0.12);
-  border: 1px solid var(--border);
-}
-
-.screenshot-row {
-  display: flex;
-  gap: 10px;
-}
-
-.screenshot-thumb {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  display: block;
-  box-shadow: 0 8px 20px rgba(59,29,109,0.08);
-  border: 1px solid rgba(0,0,0,0.04);
-}
-
-@media (min-width: 700px) {
-  .screenshot-row .screenshot-thumb { width: calc(50% - 5px); }
-}
-
-@media (max-width: 700px) {
-  .screenshot-row { flex-direction: column; }
-  .screenshot-row .screenshot-thumb { width: 100%; }
-}
