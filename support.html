@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AzAd Smart Downloader Support - FAQ, troubleshooting, and help">
+  <title>Support - AzAd Smart Downloader</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="./" class="logo">
+        <span>🔽</span> AzAd Smart Downloader
+      </a>
+      <nav>
+        <a href="./">Home</a>
+        <a href="support.html">Support</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="https://github.com/ayyazahmad/AzAd-Smart-Downloader" target="_blank">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="./">Home</a> / Support
+      </div>
+
+      <h1>Support & FAQ</h1>
+      <p class="lead">Get answers to common questions and troubleshooting tips.</p>
+
+      <section>
+        <h2>❓ Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+          <strong>Q: Is AzAd Smart Downloader free?</strong>
+          <p>A: Yes! The extension is completely free and open-source. No subscriptions, no premium features, no ads. We believe in making useful tools accessible to everyone.</p>
+        </div>
+
+        <div class="faq-item">
+          <strong>Q: Does the extension track me or collect my data?</strong>
+          <p>A: No. We are 100% privacy-focused. All scanning happens locally in your browser. No data is sent to servers. No tracking, no analytics, no personal information collected. See our <a href="privacy.html">Privacy Policy</a> for full details.</p>
+        </div>
+
+        <div class="faq-item">
+          <strong>Q: How do I install the extension?</strong>
+          <p>A: Visit the Chrome Web Store (link coming soon), click "Add to Chrome", and approve the permissions. The extension icon will appear in your toolbar. That's it!</p>
+        </div>
+
+        <div class="faq-item">
+          <strong>Q: Why do I need to give the extension these permissions?</strong>
+          <p>A: 
+            <ul style="margin-top: 10px;">
+              <li><strong>activeTab:</strong> To scan the current webpage</li>
+              <li><strong>scripting:</strong> To run the scanner on the page</li>
+              <li><strong>downloads:</strong> To save files to your Downloads folder</li>
+              <li><strong>storage:</strong> To save your preferences locally</li>
+            </ul>
+            We only use what's necessary and only when you click "Scan This Page".
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <strong>Q: Can I download from any website?</strong>
+          <p>A: The extension works on most websites, but some may block downloads or have security restrictions. If a file doesn't download, it may be restricted by the website itself, not our extension. Chrome's download rules will apply similar to manual downloads.</p>
+        </div>
+
+        <div class="faq-item">
+          <strong>Q: How are files organized after download?</strong>
+          <p>A: Downloads are organized in folders like: <code>Downloads/website-name/images/file.jpg</code>. This keeps your Downloads folder neat and organized by source and file type.</p>
+        </div>
+
+        <div class="faq-item">
+          <strong>Q: Can I adjust download speed?</strong>
+          <p>A: Yes! Go to extension options (right-click icon → Options) to adjust:
+            <ul style="margin-top: 10px;">
+              <li>Parallel connections (for speed vs. stability)</li>
+              <li>Retry attempts for failed downloads</li>
+              <li>Auto-scroll settings</li>
+            </ul>
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <strong>Q: What file types does it support?</strong>
+          <p>A: The extension scans for:
+            <ul style="margin-top: 10px;">
+              <li><strong>Images:</strong> JPG, PNG, GIF, WebP, SVG, BMP</li>
+              <li><strong>Documents:</strong> PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX</li>
+              <li><strong>Videos:</strong> MP4, WebM, MOV, AVI, MKV</li>
+              <li><strong>Audio:</strong> MP3, WAV, OGG, M4A, FLAC</li>
+              <li><strong>Archives:</strong> ZIP, RAR, 7Z, TAR, GZ</li>
+            </ul>
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <strong>Q: It's not finding files on a specific website. Why?</strong>
+          <p>A: Some possibilities:
+            <ul style="margin-top: 10px;">
+              <li>Files are loaded dynamically (JavaScript) and may need more time to load</li>
+              <li>Images are behind JavaScript obfuscation or CDN protection</li>
+              <li>The website actively blocks download tools</li>
+              <li>Files are fetched via API instead of direct URLs</li>
+            </ul>
+            Try clicking "Scan This Page" again or waiting a moment for dynamic content to load.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <strong>Q: Can I pause/resume downloads?</strong>
+          <p>A: Downloads use Chrome's native download system. You can pause downloads in Chrome by clicking the download icon in your toolbar. Once closed, downloads can be resumed if the server supports partial requests.</p>
+        </div>
+
+        <div class="faq-item">
+          <strong>Q: What happens to my scan results after I close the extension?</strong>
+          <p>A: Scan results are temporarily stored in your browser's local storage and automatically cleared after download completes. Nothing is saved permanently unless you want to and the data stays only on your device.</p>
+        </div>
+
+        <div class="faq-item">
+          <strong>Q: Is this extension open-source?</strong>
+          <p>A: Yes! Check out our <a href="https://github.com/ayyazahmad/AzAd-Smart-Downloader" target="_blank">GitHub repository</a>. You can review the code, contribute, or fork it for your own use.</p>
+        </div>
+
+        <div class="faq-item">
+          <strong>Q: How can I report a bug or request a feature?</strong>
+          <p>A: Open an issue on <a href="https://github.com/ayyazahmad/AzAd-Smart-Downloader/issues" target="_blank">GitHub Issues</a>. Please provide:
+            <ul style="margin-top: 10px;">
+              <li>Steps to reproduce (for bugs)</li>
+              <li>Which website you're using it on</li>
+              <li>Your Chrome version</li>
+              <li>Any error messages</li>
+            </ul>
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <h2>🔧 Troubleshooting</h2>
+
+        <div class="faq-item">
+          <strong>Extension won't load or crashes</strong>
+          <p>
+            Try:
+            <ul style="margin-top: 10px;">
+              <li>Reload the page (F5)</li>
+              <li>Disable and re-enable the extension (chrome://extensions)</li>
+              <li>Clear browser cache and cookies</li>
+              <li>Restart Chrome</li>
+            </ul>
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <strong>Downloads not starting</strong>
+          <p>
+            Check:
+            <ul style="margin-top: 10px;">
+              <li>Your Downloads folder is accessible and has write permissions</li>
+              <li>You're not running out of disk space</li>
+              <li>Chrome's download settings aren't blocking the downloads</li>
+              <li>Try adjusting download concurrency in extension options (lower = more stable)</li>
+            </ul>
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <strong>Getting permission errors</strong>
+          <p>
+            The extension needs proper permissions. If you see errors:
+            <ul style="margin-top: 10px;">
+              <li>Right-click the extension icon → "Manage extension"</li>
+              <li>Ensure all permissions are granted</li>
+              <li>Reinstall the extension if needed</li>
+            </ul>
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <strong>Files are corrupted or incomplete</strong>
+          <p>
+            This is usually a connection issue:
+            <ul style="margin-top: 10px;">
+              <li>Check your internet connection</li>
+              <li>Try downloading individual files instead of bulk</li>
+              <li>Increase retry attempts in extension options</li>
+              <li>Lower parallel connections to increase stability</li>
+            </ul>
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <h2>📞 Still Need Help?</h2>
+        <p>
+          If your issue isn't covered here:
+        </p>
+        <ul>
+          <li>📧 Email: <a href="https://ayyazahmad.com" target="_blank">Contact via website</a></li>
+          <li>🐛 Report a bug: <a href="https://github.com/ayyazahmad/AzAd-Smart-Downloader/issues" target="_blank">GitHub Issues</a></li>
+          <li>💬 Discussions: <a href="https://github.com/ayyazahmad/AzAd-Smart-Downloader/discussions" target="_blank">GitHub Discussions</a></li>
+          <li>🌐 Website: <a href="https://ayyazahmad.com" target="_blank">ayyazahmad.com</a></li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div>
+        <p><strong>AzAd Smart Downloader</strong></p>
+        <p>An open-source Chrome extension for bulk downloading files from webpages.</p>
+        <div class="socials">
+          <a href="https://ayyazahmad.com" target="_blank">👤 Developer</a>
+          <a href="https://azad.co" target="_blank">🌐 Company</a>
+          <a href="https://github.com/ayyazahmad/AzAd-Smart-Downloader" target="_blank">💻 GitHub</a>
+        </div>
+      </div>
+      <div>
+        <p><strong>Made with ❤️</strong></p>
+        <p>by <a href="https://ayyazahmad.com" target="_blank">Ayyaz Ahmad</a></p>
+        <p style="margin-top: 20px; font-size: 12px;">
+          <a href="privacy.html">Privacy Policy</a> • 
+          <a href="support.html">Support</a> • 
+          <a href="https://github.com/ayyazahmad/AzAd-Smart-Downloader/blob/main/LICENSE" target="_blank">License</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
