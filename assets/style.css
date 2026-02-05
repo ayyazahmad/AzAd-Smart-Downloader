@@ -225,6 +225,39 @@ code {
   color: #fff;
 }
 
+/* Image gallery */
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.image-grid.compact {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.image-card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 12px;
+  box-shadow: 0 8px 20px rgba(59,29,109,0.08);
+  border: 1px solid var(--border);
+}
+
+.image-card img {
+  width: 100%;
+  display: block;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.image-card figcaption {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 10px;
+}
+
 /* Hero Section */
 .hero {
   display: flex;
