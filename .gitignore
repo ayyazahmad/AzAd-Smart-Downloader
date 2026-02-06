@@ -6,8 +6,9 @@
 !.github/
 !.github/**
 !README.md
-!LICENSE
 !CHANGELOG.md
+!AGENT_INSTRUCTIONS.md
+!LICENSE
 !AzAd_Smart_Downloader/
 !AzAd_Smart_Downloader/**
 !docs/
